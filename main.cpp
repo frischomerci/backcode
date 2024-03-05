@@ -20,3 +20,7 @@
     } else if(keyword == "p" || keyword == "l" || keyword == "f") {
             const std::vector<std::string> indexTuples = Utility::String::splitWithoutEmptyParts(contents, ' ');
 //good
+  if(primitive && primitive != MeshPrimitive::Points) {
+                    Error() << "Trade::ObjImporter::mesh(): mixed primitive" << *primitive << "and" << MeshPrimitive::Points;
+                    return Containers::NullOpt;
+                }
